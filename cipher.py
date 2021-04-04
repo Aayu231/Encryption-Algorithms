@@ -75,7 +75,7 @@ def playfair(msg,keyword):
         i += 2
     return msg,cipher,key_matrix
 
-#transposition Cipher [Keyed and keyless]
+#transposition Cipher [Keyed]
 def columnar_transposition(msg,key):
     blocks = []
     key_length = len(key)
@@ -111,31 +111,3 @@ def keyless_transposition(msg,block_size):
     print(transpose_matrix)
     keyless_cipher = "".join([block for block in transpose_matrix])
     return msg,keyless_cipher #, key_cipher
-    
-def main():
-    message = input("Enter Message: ").lower().replace(' ','')
-    print('!!!All Operations will be carried out in Lower case!!!\n')  
-    print('*********MonoAlphabetic Cipher [Ceaser Cipher]*********\n')
-    CCkey = int(input("Ceaser Encryption Key:"))
-    CCcipher = CCencrypt(message, CCkey)
-    print("\nOriginal message : ", message,"\nafter Encryption : ",CCcipher,'\nAfter Decryption : ', CCdecrypt(CCcipher, CCkey))
-    print('\n\n*********PolyAlphabetic Cipher*********\n *********[Vigenere Ciphering]*********\n')
-    key = input('Enter Vigenere Key:').lower().replace(' ','')
-    print("\nOriginal message : ",message,"\nafter Encryption : ", vigenere_encrypt(message,key))
-    print('\n\n*********PolyAlphabetic Cipher *********\n*********[Autokey Cipher]*********\n')
-    key = input('Enter Autokey Ciphering Key:').lower().replace(' ','')
-    print("\nOriginal message : ",message,"\nafter Encryption : ", autokey_encrypt(message,key))
-    print('\n\n*********PolyAlphabetic Cipher *********\n*********[Playfair Cipher]*********\n')
-    key = input('Enter Playfair Keyword:').lower().replace(' ','')
-    msg,cipher,key_matrix = playfair(message,key)
-    print('The Message after pair correction is : ',msg)
-    print('The generated key matrix is : ', key_matrix)
-    print("\nOriginal message   : ", message,"\nAfter Encryption : ",cipher)
-
-    print('\n\n*********Transposition Cipher [Keyed and Keyless]*********\n')
-    key = input('Enter Transposition Key:').lower().replace(' ','')
-    res = transposition(message, key)
-    print("\nOriginal message   : ", res[0],"\nKeyless Encryption : ",res[1],"\nKeyed Encryption   : ",res[2])
-
-if __name__=='__main__':
-    main()
