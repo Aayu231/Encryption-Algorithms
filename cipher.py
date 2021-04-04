@@ -5,9 +5,12 @@ def CCencrypt(string, CCkey):
     return ''.join([chr((ord(letter) + CCkey - 97) % 26 + 97) for letter in string])
 
 def multiplicative(string, key):
-    return ''.join([chr(((ord(letter) * key) - 97) % 26 + 97) for letter in string])
+    return ''.join([chr(((ord(letter) - 97) * key) % 26 + 97) for letter in string])
  
- 
+def affine(string, key, key2):
+    string = string.lower()
+    return ''.join([chr((((ord(letter) - 97) * key) + key2) % 26 + 97) for letter in string])
+
 def CCdecrypt(string, CCkey):
     return ''.join([chr((ord(letter) - CCkey - 97) % 26 + 97) for letter in string])
     
@@ -72,8 +75,8 @@ def playfair(msg,keyword):
         i += 2
     return msg,cipher,key_matrix
 
-#transposition Cipher [Keyed and keyless]
-def transposition(msg,key):
+#transposition Cipher [Keyed]
+def columnar_transposition(msg,key):
     blocks = []
     key_length = len(key)
     i = 0
@@ -88,36 +91,23 @@ def transposition(msg,key):
     for index in key:   #keyed encryption
         for block in blocks:
             key_cipher+= block[int(index)-1]
-    #keyless encryption        
+    return msg, key_cipher
+    
+#transposition Cipher [keyless]
+def keyless_transposition(msg,block_size):
+    msg = msg.replace(' ','_')
+    blocks = []
+    key_length = block_size
+    i = 0
+    key_cipher = ''
+    if len(msg)%key_length != 0:     #Balancing letters in message. making it multiple of key by adding bogus character '_'
+        msg += '_'*(key_length - len(msg)%key_length)
+    
+    while (i < len(msg)):   #dividing in blocks
+        blocks.append(msg[i:i+key_length])
+        i+=key_length
+        
     transpose_matrix = ["".join([blocks[j][i] for j in range(len(blocks))]) for i in range(len(blocks[0]))]
-    keyless_cipher = "".join([block for block in transpose_matrix]) #keyless cipher
-    return msg,keyless_cipher, key_cipher
-    
-    
-def main():
-    message = input("Enter Message: ").lower().replace(' ','')
-    print('!!!All Operations will be carried out in Lower case!!!\n')  
-    print('*********MonoAlphabetic Cipher [Ceaser Cipher]*********\n')
-    CCkey = int(input("Ceaser Encryption Key:"))
-    CCcipher = CCencrypt(message, CCkey)
-    print("\nOriginal message : ", message,"\nafter Encryption : ",CCcipher,'\nAfter Decryption : ', CCdecrypt(CCcipher, CCkey))
-    print('\n\n*********PolyAlphabetic Cipher*********\n *********[Vigenere Ciphering]*********\n')
-    key = input('Enter Vigenere Key:').lower().replace(' ','')
-    print("\nOriginal message : ",message,"\nafter Encryption : ", vigenere_encrypt(message,key))
-    print('\n\n*********PolyAlphabetic Cipher *********\n*********[Autokey Cipher]*********\n')
-    key = input('Enter Autokey Ciphering Key:').lower().replace(' ','')
-    print("\nOriginal message : ",message,"\nafter Encryption : ", autokey_encrypt(message,key))
-    print('\n\n*********PolyAlphabetic Cipher *********\n*********[Playfair Cipher]*********\n')
-    key = input('Enter Playfair Keyword:').lower().replace(' ','')
-    msg,cipher,key_matrix = playfair(message,key)
-    print('The Message after pair correction is : ',msg)
-    print('The generated key matrix is : ', key_matrix)
-    print("\nOriginal message   : ", message,"\nAfter Encryption : ",cipher)
-
-    print('\n\n*********Transposition Cipher [Keyed and Keyless]*********\n')
-    key = input('Enter Transposition Key:').lower().replace(' ','')
-    res = transposition(message, key)
-    print("\nOriginal message   : ", res[0],"\nKeyless Encryption : ",res[1],"\nKeyed Encryption   : ",res[2])
-
-if __name__=='__main__':
-    main()
+    print(transpose_matrix)
+    keyless_cipher = "".join([block for block in transpose_matrix])
+    return msg,keyless_cipher #, key_cipher
