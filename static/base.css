@@ -1,0 +1,10 @@
+body{
+    background : url('https://images.pexels.com/photos/317355/pexels-photo-317355.jpeg?auto=compress');
+    background-repeat:no-repeat;
+    background-position:center;
+    background-size:cover;
+}
+
+nav{
+    background:linear-gradient(00deg,rgba(0,0,0,0.6),rgba(0,0,0,0.6))
+}

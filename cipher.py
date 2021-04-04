@@ -3,6 +3,9 @@ import math
 #Caesar Cipher
 def CCencrypt(string, CCkey):
     return ''.join([chr((ord(letter) + CCkey - 97) % 26 + 97) for letter in string])
+
+def multiplicative(string, key):
+    return ''.join([chr(((ord(letter) * CCkey) - 97) % 26 + 97) for letter in string])
  
  
 def CCdecrypt(string, CCkey):
@@ -115,4 +118,6 @@ def main():
     key = input('Enter Transposition Key:').lower().replace(' ','')
     res = transposition(message, key)
     print("\nOriginal message   : ", res[0],"\nKeyless Encryption : ",res[1],"\nKeyed Encryption   : ",res[2])
-main()
+
+if __name__=='__main__':
+    main()
