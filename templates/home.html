@@ -36,22 +36,30 @@
   <div class="tab-content" id="myTabContent">
     <!-- Caeser Cipher Form starts here -->
     <div class="tab-pane fade show active" id="caeser" role="tabpanel" aria-labelledby="caeser-tab">
-        <form action="/test/" class="col-8 mx-auto">
-          {{ csrf_token }}
+        <form class="col-8 mx-auto" id="caeser-form">
           <h2>Caesar Cipher</h2>
-            <input type="text" class="form-control m-3" aria-label="With textarea" placeholder="Enter Plain Text" name="plainText" pattern="[a-zA-Z]+" required>
+            <input type="text" class="form-control m-3" placeholder="Enter Plain Text" id="caeser-plaintext" pattern="[a-z A-Z]+" required>
           <div class="input-group m-3">
-            <input type="number" class="form-control" placeholder="Enter Numeric Key" aria-label="Plain Text" max="999" min="0" aria-describedby="encrypt" name="key" required>
+            <input type="number" class="form-control" placeholder="Enter Numeric Key" aria-label="Plain Text" max="999" min="0" aria-describedby="encrypt" id="caeser-key" required>
             <button class="btn btn-outline-primary" type="submit" id="encrypt">Encrypt</button>
           </div>
         </form>
-    </div>
+
+        <!-- <input type="text" value="Hello World" id="myInput"> -->
+          <table class="col-8 m-3 mx-auto text-center" style="display:none" id="caeser-table">
+            <tr>
+              <td>Encrypted Text</td>
+              <td><div id="caeser-output" class="form-control"></div></td>
+              <td><button onclick="myFunction('caeser-output')" class="btn btn-secondary display-hidden">Copy to Clipboard</button></td>
+            </tr>
+          </table>
+      </div>
     <!-- Multiplicative Cipher Form starts here -->
     <div class="tab-pane fade" id="multiplicative" role="tabpanel" aria-labelledby="multiplicative-tab">
       <form action="/test/" class="col-8 mx-auto">
         {{ csrf_token }}
         <h2>Multiplicative Cipher</h2>
-          <input type="text" class="form-control m-3" aria-label="With textarea" placeholder="Enter Plain Text" name="plainText" pattern="[a-zA-Z]+" required>
+          <input type="text" class="form-control m-3" aria-label="With textarea" placeholder="Enter Plain Text" name="plainText" pattern="[a-z A-Z]+" required>
         <div class="input-group m-3">
           <input type="number" class="form-control" placeholder="Enter Numeric Key" aria-label="Plain Text" max="999" min="0" aria-describedby="encrypt" name="key" required>
           <button class="btn btn-outline-primary" type="submit" id="encrypt">Encrypt</button>
@@ -63,7 +71,7 @@
       <form action="/test/" class="col-8 mx-auto">
         {{ csrf_token }}
         <h2>Affine Cipher</h2>
-          <input type="text" class="form-control m-3" aria-label="With textarea" placeholder="Enter Plain Text" name="plainText" pattern="[a-zA-Z]+" required>
+          <input type="text" class="form-control m-3" aria-label="With textarea" placeholder="Enter Plain Text" name="plainText" pattern="[a-z A-Z]+" required>
           <div class="input-group m-3">
             <input type="number" class="form-control" placeholder="Enter Multiplication Key" aria-label="Plain Text" max="999" min="0" aria-describedby="encrypt" name="key1" required>
             <input type="number" class="form-control" placeholder="Enter Addition Key" aria-label="Plain Text" max="999" min="0" aria-describedby="encrypt" name="key2" required>
@@ -76,7 +84,7 @@
     <form action="/test/" class="col-8 mx-auto">
       {{ csrf_token }}
       <h2>AutoKey Cipher</h2>
-        <input type="text" class="form-control m-3" aria-label="With textarea" placeholder="Enter Plain Text" name="plainText" pattern="[a-zA-Z]+" required>
+        <input type="text" class="form-control m-3" aria-label="With textarea" placeholder="Enter Plain Text" name="plainText" pattern="[a-z A-Z]+" required>
         <div class="input-group m-3">
           <input type="text" class="form-control" placeholder="Enter Numeric Key" aria-label="Plain Text" aria-describedby="encrypt" name="key" required>
           <button class="btn btn-outline-primary" type="submit" id="encrypt">Encrypt</button>
@@ -88,9 +96,9 @@
       <form action="/test/" class="col-8 mx-auto">
         {{ csrf_token }}
         <h2>PlayFair Cipher</h2>
-          <input type="text" class="form-control m-3" aria-label="With textarea" placeholder="Enter Plain Text" name="plainText" pattern="[a-zA-Z]+" required>
+          <input type="text" class="form-control m-3" aria-label="With textarea" placeholder="Enter Plain Text" name="plainText" pattern="[a-z A-Z]+" required>
           <div class="input-group m-3">
-            <input type="text" class="form-control" placeholder="Enter Keyword" aria-label="Plain Text" aria-describedby="encrypt" name="key" required>
+            <input type="text" class="form-control" placeholder="Enter Keyword" aria-label="Plain Text" aria-describedby="encrypt" pattern="[a-zA-Z]" name="key" required>
             <button class="btn btn-outline-primary" type="submit" id="encrypt">Encrypt</button>
           </div>
         </form>
@@ -100,9 +108,9 @@
       <form action="/test/" class="col-8 mx-auto">
         {{ csrf_token }}
         <h2>Vigenere Cipher</h2>
-          <input type="text" class="form-control m-3" aria-label="With textarea" placeholder="Enter Plain Text" name="plainText" pattern="[a-zA-Z]+" required>
+          <input type="text" class="form-control m-3" aria-label="With textarea" placeholder="Enter Plain Text" name="plainText" pattern="[a-z A-Z]+" required>
         <div class="input-group m-3">
-          <input type="text" class="form-control" placeholder="Enter Keyword" aria-label="Plain Text" aria-describedby="encrypt" name="key" required>
+          <input type="text" class="form-control" placeholder="Enter Keyword" aria-label="Plain Text" aria-describedby="encrypt" name="key"  pattern="[a-zA-Z]" required>
           <button class="btn btn-outline-primary" type="submit" id="encrypt">Encrypt</button>
         </div>
       </form>
@@ -113,7 +121,7 @@
         {{ csrf_token }}
         <h2>Keyless Transposition Cipher</h2>
           <!-- -->
-          <input type="text" class="form-control m-3"  placeholder="Enter Plain Text" aria-label="Plain Text" name="plainText" pattern="[a-zA-Z]+" required>
+          <input type="text" class="form-control m-3"  placeholder="Enter Plain Text" aria-label="Plain Text" name="plainText" pattern="[a-z A-Z]+" required>
         <div class="input-group m-3">
           <input type="number" class="form-control" placeholder="Enter block size" name="key" max="10" min="0" required>
           <button class="btn btn-outline-primary" type="submit" id="encrypt">Encrypt</button>
@@ -125,7 +133,7 @@
       <form action="/test/" class="col-8 mx-auto">
         {{ csrf_token }}
         <h2>Columnar Transposition Cipher</h2>
-          <input type="text" class="form-control m-3" aria-label="With textarea" placeholder="Enter Plain Text" name="plainText" pattern="[a-zA-Z]+" required>
+          <input type="text" class="form-control m-3" aria-label="With textarea" placeholder="Enter Plain Text" name="plainText" pattern="[a-z A-Z]+" required>
         <div class="input-group m-3">
           <input type="text" class="form-control" placeholder="Enter Columnar Key (Example : 54321)" aria-label="Plain Text" aria-describedby="encrypt" name="key" required>
           <button class="btn btn-outline-primary" type="submit" id="encrypt">Encrypt</button>
@@ -139,3 +147,42 @@
 </div>
 </div>
 {%endblock content%}
+
+{% block scripts %}
+<script type="text/javascript">
+$(document).ready(function() {
+  $('#caeser-form').on('submit', function(event) {
+    $('#caeser-output').text("Encrypting your message...").show();
+    $.ajax({
+       data : {
+          plaintext : $('#caeser-plaintext').val(),
+          key: $('#caeser-key').val(),
+              },
+          type : 'POST',
+          url : '/encrypt/caeser/'
+         })
+     .done(function(data) {
+       console.log(data.cipher);
+      $('#caeser-table').show();
+       $('#caeser-output').text(data.cipher).show();
+   });
+   event.preventDefault();
+   });
+});
+
+
+
+//Copy to clipboard script
+function myFunction(value) {
+  console.log(value);
+    str = document.getElementById(value).innerHTML;
+    const el = document.createElement('textarea');
+    el.value = str;
+    document.body.appendChild(el);
+    el.select();
+    document.execCommand('copy');
+    document.body.removeChild(el);
+    alert('Copied the text : ' + el.value);
+};
+</script>
+{% endblock scripts %}

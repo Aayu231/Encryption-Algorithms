@@ -10,9 +10,9 @@ def home():
 
 @app.route('/encrypt/caeser/',methods= ['POST'])
 def ceaser():
-    pt = request.POST["plaintext"]
-    key = request.POST["key"]
-    ct = cipher.CCencrypt(pt,key)
+    pt = request.form["plaintext"].lower()
+    key = request.formpt = request.form["key"]
+    ct = cipher.CCencrypt(pt,int(key))
     if ct:
         return jsonify({'cipher': ct})
     return jsonify({'error' : 'Something went wrong'})
