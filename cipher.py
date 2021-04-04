@@ -5,7 +5,7 @@ def CCencrypt(string, CCkey):
     return ''.join([chr((ord(letter) + CCkey - 97) % 26 + 97) for letter in string])
 
 def multiplicative(string, key):
-    return ''.join([chr(((ord(letter) * CCkey) - 97) % 26 + 97) for letter in string])
+    return ''.join([chr(((ord(letter) * key) - 97) % 26 + 97) for letter in string])
  
  
 def CCdecrypt(string, CCkey):
