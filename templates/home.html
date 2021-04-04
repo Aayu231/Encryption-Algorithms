@@ -65,20 +65,20 @@
         <h2>Affine Cipher</h2>
           <input type="text" class="form-control m-3" aria-label="With textarea" placeholder="Enter Plain Text" name="plainText" pattern="[a-zA-Z]+" required>
           <div class="input-group m-3">
-            <input type="number" class="form-control" placeholder="Enter Numeric Key" aria-label="Plain Text" max="999" min="0" aria-describedby="encrypt" name="key1" required>
-            <input type="number" class="form-control" placeholder="Enter Numeric Key" aria-label="Plain Text" max="999" min="0" aria-describedby="encrypt" name="key2" required>
+            <input type="number" class="form-control" placeholder="Enter Multiplication Key" aria-label="Plain Text" max="999" min="0" aria-describedby="encrypt" name="key1" required>
+            <input type="number" class="form-control" placeholder="Enter Addition Key" aria-label="Plain Text" max="999" min="0" aria-describedby="encrypt" name="key2" required>
             <button class="btn btn-outline-primary" type="submit" id="encrypt">Encrypt</button>
           </div>
         </form>
       </div>
-    <!-- Affine Cipher Form starts here -->   
+    <!-- Autokey Cipher Form starts here -->   
     <div class="tab-pane fade" id="autokey" role="tabpanel" aria-labelledby="autokey-tab">
     <form action="/test/" class="col-8 mx-auto">
       {{ csrf_token }}
       <h2>AutoKey Cipher</h2>
         <input type="text" class="form-control m-3" aria-label="With textarea" placeholder="Enter Plain Text" name="plainText" pattern="[a-zA-Z]+" required>
         <div class="input-group m-3">
-          <input type="text" class="form-control" placeholder="Enter Alphabetic Key" aria-label="Plain Text" aria-describedby="encrypt" name="key" required>
+          <input type="text" class="form-control" placeholder="Enter Numeric Key" aria-label="Plain Text" aria-describedby="encrypt" name="key" required>
           <button class="btn btn-outline-primary" type="submit" id="encrypt">Encrypt</button>
         </div>
       </form>
@@ -90,7 +90,7 @@
         <h2>PlayFair Cipher</h2>
           <input type="text" class="form-control m-3" aria-label="With textarea" placeholder="Enter Plain Text" name="plainText" pattern="[a-zA-Z]+" required>
           <div class="input-group m-3">
-            <input type="text" class="form-control" placeholder="Enter Alphabetic Key" aria-label="Plain Text" aria-describedby="encrypt" name="key" required>
+            <input type="text" class="form-control" placeholder="Enter Keyword" aria-label="Plain Text" aria-describedby="encrypt" name="key" required>
             <button class="btn btn-outline-primary" type="submit" id="encrypt">Encrypt</button>
           </div>
         </form>
@@ -102,7 +102,7 @@
         <h2>Vigenere Cipher</h2>
           <input type="text" class="form-control m-3" aria-label="With textarea" placeholder="Enter Plain Text" name="plainText" pattern="[a-zA-Z]+" required>
         <div class="input-group m-3">
-          <input type="text" class="form-control" placeholder="Enter Alphabetic Key" aria-label="Plain Text" aria-describedby="encrypt" name="key" required>
+          <input type="text" class="form-control" placeholder="Enter Keyword" aria-label="Plain Text" aria-describedby="encrypt" name="key" required>
           <button class="btn btn-outline-primary" type="submit" id="encrypt">Encrypt</button>
         </div>
       </form>
@@ -113,8 +113,9 @@
         {{ csrf_token }}
         <h2>Keyless Transposition Cipher</h2>
           <!-- -->
+          <input type="text" class="form-control m-3"  placeholder="Enter Plain Text" aria-label="Plain Text" name="plainText" pattern="[a-zA-Z]+" required>
         <div class="input-group m-3">
-          <input type="text" class="form-control"  placeholder="Enter Plain Text" aria-label="Plain Text" aria-describedby="encrypt" name="plainText" pattern="[a-zA-Z]+" required>
+          <input type="number" class="form-control" placeholder="Enter block size" name="key" max="10" min="0" required>
           <button class="btn btn-outline-primary" type="submit" id="encrypt">Encrypt</button>
         </div>
       </form>
@@ -126,7 +127,7 @@
         <h2>Columnar Transposition Cipher</h2>
           <input type="text" class="form-control m-3" aria-label="With textarea" placeholder="Enter Plain Text" name="plainText" pattern="[a-zA-Z]+" required>
         <div class="input-group m-3">
-          <input type="text" class="form-control" placeholder="Enter Alphabetic Key" aria-label="Plain Text" aria-describedby="encrypt" name="key" required>
+          <input type="text" class="form-control" placeholder="Enter Columnar Key (Example : 54321)" aria-label="Plain Text" aria-describedby="encrypt" name="key" required>
           <button class="btn btn-outline-primary" type="submit" id="encrypt">Encrypt</button>
         </div>
       </form>
