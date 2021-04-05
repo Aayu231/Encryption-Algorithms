@@ -8,29 +8,29 @@ app = Flask(__name__, static_folder="static/")
 def home():
     return render_template('home.html')
 
-@app.route('/encrypt/caeser/',methods= ['POST'])
+@app.route('/encrypt/caesar/', methods= ['POST'])
 def ceaser():
     pt = request.form["plaintext"].lower()
-    key = request.formpt = request.form["key"]
+    key = request.form["key"]
     ct = cipher.CCencrypt(pt,int(key))
     if ct:
         return jsonify({'cipher': ct})
     return jsonify({'error' : 'Something went wrong'})
 
-@app.route('/encrypt/multiplicative',methods= ['POST'])
+@app.route('/encrypt/multiplicative/', methods= ['POST'])
 def multiplicative():
-    pt = request.POST["plaintext"]
-    key = request.POST["key"]
-    ct = cipher.multiplicative(pt,key)
+    pt = request.form["plaintext"].lower()
+    key = request.form["key"]
+    ct = cipher.multiplicative(pt, int(key))
     if ct:
         return jsonify({'cipher': ct})
     return jsonify({'error' : 'Something went wrong'})
 
 @app.route('/encrypt/affine/',methods= ['POST'])
 def affine():
-    pt = request.POST["plaintext"]
-    multkey = request.POST["multkey"]
-    addkey = request.POST["addkey"]
+    pt = request.form["plaintext"]
+    multkey = request.form["multkey"]
+    addkey = request.form["addkey"]
     ct = cipher.affine(pt,multkey,addkey)
     if ct:
         return jsonify({'cipher': ct})
