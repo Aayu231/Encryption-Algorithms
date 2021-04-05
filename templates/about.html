@@ -1,0 +1,101 @@
+{% extends 'base.html'%}{% block content%}
+
+<div>
+    <div class="container py-5">
+      <div class="row h-100 align-items-center py-5">
+        <div class="col-lg-6">
+          <h1 class="display-5 text-success"><b>What is Secrepy?</b></h1>
+          <br/>
+
+          <h5 class="font-weight-light text-light"><b>Secrepy is a Simple Application that provides you Encryption of Words using Multiple Cipher techniques.<br/>
+         The Techniques depicted here are used generally for cryptography and making the system more secure.</b></h4>
+
+          </p>
+        </div>
+        <div class="col-lg-6 d-none d-lg-block"><img src="{{url_for('static', filename='/images/logo.png')}}" alt="" class="img-fluid"></div>
+      </div>
+    </div>
+  </div>
+  
+  <div class="bg-white py-5">
+    <div class="container py-5">
+      <div class="row align-items-center mb-5">
+        <div class="col-lg-6 order-2 order-lg-1"><i class="fa fa-bar-chart fa-2x mb-3 text-primary"></i>
+          <h2 class="font-weight-light">More about Cryptography</h2>
+          <h5 class="font-weight-light">Let's Take a look at the List of Different Cipher techniques that we are using here...</h5><br/>
+          <h5 class="font-weight-light">
+              <ul>
+              <li style="color:black"><a href="https://en.wikipedia.org/wiki/Caesar_cipher"> Caesar Cipher</a> </li>
+              <li> <a href="https://www.tutorialspoint.com/cryptography_with_python/cryptography_with_python_multiplicative_cipher.htm">  Multiplicative Cipher </a></li>
+              <li>  <a href="https://en.wikipedia.org/wiki/Affine_cipher#:~:text=The%20affine%20cipher%20is%20a,converted%20back%20to%20a%20letter."> Affine Cipher</a> </li>
+              <li>  <a href="https://en.wikipedia.org/wiki/Autokey_cipher"> Autokey Cipher </a></li>
+              <li>  <a href="https://en.wikipedia.org/wiki/Playfair_cipher">Playfair Cipher </a> </li>
+              <li> <a href="https://en.wikipedia.org/wiki/Vigen%C3%A8re_cipher">  Vigenere Cipher</a> </li>
+              <li>  <a href="https://www.ques10.com/p/3454/what-is-keyless-transposition-cipher-give-an-exa-1/#:~:text=Keyless%20Transportation%20cipher%20is%20simple,then%20transmitted%20column%20by%20column.ssss"> Keyless Transposition Cipher</a> </li>
+              <li>  <a href="https://www.geeksforgeeks.org/columnar-transposition-cipher/"> Keyed Transposition Cipher</a> </li>
+             </ul>
+            </h2>
+        </div>
+        <div class="col-lg-5 px-5 mx-auto order-1 order-lg-2"><img src="{{url_for('static', filename='/images/static1.png')}}" alt="" class="img-fluid mb-4 mb-lg-0"></div>
+      </div>
+      <div class="row align-items-center">
+        <div class="col-lg-5 px-5 mx-auto"><img src="{{url_for('static', filename='/images/static2.png')}}" alt="" class="img-fluid mb-4 mb-lg-0"></div>
+        <div class="col-lg-6"><i class="fa fa-leaf fa-2x mb-3 text-primary"></i>
+          <h2 class="font-weight-light">Applications of these techniques..</h2>
+          <p class="font-italic text-muted mb-4">The Application for Cryptography can be seen everywhere, the Mobile recharge that you do, the text messages that you send on Social Networking platforms
+            .Cryptography is the method of transmitting secured data and communications via few codes so that only the destined person knows about the actual information that is transmitted.
+             This form of process intercepts unauthorized accessibility for the data. So, in clear the name itself indicates that “crypt” refers to “hidden” to “writing”. Encoding of information in cryptography 
+             follows mathematical hypotheses and few calculations described as algorithms. The encoded data is transmitted so that it makes it difficult to find the original data. These sets of rules are utilized 
+             in the procedures of digital signing, authentication to secure data, cryptographic key development and to safeguard all your financial transactions. </p>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <div class="bg-light py-5">
+    <div class="container py-5">
+      <div class="row mb-4 ml-5">
+        <div class="col-lg-5">
+          <h2 class="display-4 font-weight-light text-center"> Developers..</h2>
+        </div>
+      </div>
+  
+      <div class="row text-center">
+        <div class="col-xl-2 col-sm-4 mb-5" ></div>
+        <!-- Team item-->
+        <div class="col-xl-3 col-sm-7 mb-5" >
+          <div class="bg-primary rounded shadow-sm py-5 px-4"><img src="{{url_for('static', filename='/images/anurag.jpeg')}}" alt="" width="100" class="img-fluid rounded-circle mb-3 img-thumbnail shadow-sm">
+            <h5 class="mb-0 text-light">Anurag Singh </h5><span class="small text-uppercase text-light">TE COMP B 30</span>
+          </div>
+        </div>
+        <!-- End-->
+  
+        <!-- Team item-->
+        <div class="col-xl-3 col-sm-7 mb-5">
+          <div class="bg-primary rounded shadow-sm py-5 px-4"><img src="{{url_for('static', filename='/images/aayushi.jpg')}}" alt="" width="100" class="img-fluid rounded-circle mb-3 img-thumbnail shadow-sm">
+            <h5 class="mb-0 text-light">Aayushi Sarda </h5><span class="small text-uppercase text-light">TE COMP B 15</span>
+           
+          </div>
+        </div>
+        <!-- End-->
+  
+        <!-- Team item-->
+        <div class="col-xl-3 col-sm-7 mb-5">
+          <div class="bg-primary rounded shadow-sm py-5 px-4"><img src="{{url_for('static', filename='/images/harsh.jpg')}}" alt="" width="100" class="img-fluid rounded-circle mb-3 img-thumbnail shadow-sm">
+            <h5 class="mb-0 text-light">Harsh Singh</h5><span class="small text-uppercase text-light">TE COMP B 31</span>
+          </div>
+        </div>
+        <!-- End-->
+        <div class="col-xl-2 col-sm-4 mb-5" ></div>
+  
+      </div>
+    </div>
+  </div>
+  
+  
+  <footer class="bg-light pb-5">
+    <div class="container text-center">
+      <p class="font-italic text-muted mb-0">&copy; Secrepy All rights reserved.</p>
+    </div>
+  </footer>
+{%endblock content%}
