@@ -7,6 +7,9 @@ app = Flask(__name__, static_folder="static/")
 @app.route('/home/')
 def home():
     return render_template('home.html')
+@app.route('/about/')
+def about():
+    return render_template('about.html')
 
 @app.route('/encrypt/caesar/', methods= ['POST'])
 def ceaser():
