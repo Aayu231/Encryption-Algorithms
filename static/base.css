@@ -6,5 +6,15 @@ body{
 }
 
 nav{
-    background:linear-gradient(00deg,rgba(0,0,0,0.6),rgba(0,0,0,0.6))
+    background:linear-gradient(00deg,rgba(0, 0, 0, 0.6),rgb(0, 0, 0, 0.6))
+}
+
+.about-back{
+    position:absolute;
+    z-index: -1;
+    background : url('https://images.pexels.com/photos/317355/pexels-photo-317355.jpeg?auto=compress');
+    background-repeat:no-repeat;
+    background-position:center;
+    background-size:fixed;
+    height:100vh;
 }

@@ -17,6 +17,8 @@ def CCdecrypt(string, CCkey):
 #PolyAlphabetic Cipher [Vigenere, Autokey, Playfair] 
 #Vigenere Cipher
 def vigenere_encrypt(msg, key):
+    msg = msg.replace(' ', '').lower()
+    key = key.replace(' ', '').lower()
     return "".join([chr((((ord(msg[i])-97)+(ord(key[i%len(key)])-97))%26)+97) for i in range(len(msg))])
     
 #Autokey Cipher  
@@ -26,6 +28,8 @@ def autokey_encrypt(msg,key):
 
 #playfair cipher 
 def playfair(msg,keyword):
+    msg = msg.replace(' ', '').lower()
+    keyword = keyword.replace(' ', '').lower()
     key = ''
     key_matrix = []
     for letter in keyword:
@@ -80,6 +84,8 @@ def columnar_transposition(msg,key):
     blocks = []
     key_length = len(key)
     i = 0
+    if len(key) != len(set(key)): return "Error in provided key, It contains some repitition of digits!",None,None
+    if '0' in set(key): return "Error in provided key, It contains column number 0 but column starts from 1! Don't use 0 it is reserved for PROGRAMMERS only.",None,None
     key_cipher = ''
     if len(msg)%len(key) != 0:     #Balancing letters in message. making it multiple of key by adding bogus character '_'
         msg += '_'*(len(key) - len(msg)%len(key))
@@ -91,7 +97,7 @@ def columnar_transposition(msg,key):
     for index in key:   #keyed encryption
         for block in blocks:
             key_cipher+= block[int(index)-1]
-    return msg, key_cipher
+    return None,msg, key_cipher
     
 #transposition Cipher [keyless]
 def keyless_transposition(msg,block_size):

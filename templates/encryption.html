@@ -4,6 +4,7 @@
 <div class="container" style="height:85vh;display:flex;flex-direction:column;justify-content:center;">
 <div class="card text-center col-lg-12 col-sm-12 mx-auto my-auto">
   <div class="card-header">
+    <h4 class="text-uppercase text-success">Encryption Algorithms</h4>
 <ul class="nav nav-tabs" id="myTab" role="tablist">
     <li class="nav-item" role="presentation">
       <button class="nav-link active" id="caesar-tab" data-bs-toggle="tab" data-bs-target="#caesar" type="button" role="tab" aria-controls="caesar" aria-selected="true">Caesar</button>
@@ -74,7 +75,7 @@
     </div>      
     <!-- Affine Cipher Form starts here -->
     <div class="tab-pane fade" id="affine" role="tabpanel" aria-labelledby="affine-tab">
-      <form id="affine_form" class="col-8 mx-auto">
+      <form id="affine-form" class="col-8 mx-auto">
         {{ csrf_token }}
         <h2>Affine Cipher</h2>
           <input type="text" class="form-control m-3" aria-label="With textarea" placeholder="Enter Plain Text" name="plainText" id = "affine-plaintext" pattern="[a-z A-Z]+" required>
@@ -88,7 +89,7 @@
           <tr>
             <td>Encrypted Text</td>
             <td><div id="affine-output" class="form-control"></div></td>
-            <td><button onclick="myFunction('affine-output')" class="btn btn-secondary display-hidden">Copy to Clipboard</button></td>
+            <td><button onclick="myFunction('affine-output')" class="btn btn-secondary">Copy to Clipboard</button></td>
           </tr>
         </table>
       </div>
@@ -113,53 +114,112 @@
     </div>
     <!-- PlayFair Cipher Form starts here -->
     <div class="tab-pane fade" id="playfair" role="tabpanel" aria-labelledby="playfair-tab">
-      <form action="/test/" class="col-8 mx-auto">
+      <form class="col-8 mx-auto" id="playfair-form">
         {{ csrf_token }}
-        <h2>PlayFair Cipher</h2>
-          <input type="text" class="form-control m-3" aria-label="With textarea" placeholder="Enter Plain Text" name="plainText" pattern="[a-z A-Z]+" required>
+        <h2>Playfair Cipher</h2>
+          <input type="text" class="form-control m-3" aria-label="With textarea" placeholder="Enter Plain Text" id = "playfair_plaintext" pattern="[a-z A-Z]+" required>
           <div class="input-group m-3">
-            <input type="text" class="form-control" placeholder="Enter Keyword" aria-label="Plain Text" aria-describedby="encrypt" pattern="[a-zA-Z]" name="key" required>
+            <input type="text" class="form-control" placeholder="Enter Keyword" aria-label="Plain Text" aria-describedby="encrypt" id = "playfair_keyword" pattern="[a-z A-Z]+" required>
             <button class="btn btn-outline-primary" type="submit" id="encrypt">Encrypt</button>
           </div>
         </form>
+        <table class="col-8 m-3 mx-auto text-center" style="display:none" id="playfair-table">
+          <tr>
+            <td>Message</td>
+            <td colspan='2'><span id="playfair-message">test<br>test</span></td>
+          </tr>
+          <tr>
+            <td>key Matrix</td>
+            <td colspan='2'>
+              <hr>
+              <span id="playfair-keymatrix1"></span><br>
+              <span id="playfair-keymatrix2"></span><br>
+              <span id="playfair-keymatrix3"></span><br>
+              <span id="playfair-keymatrix4"></span><br>
+              <span id="playfair-keymatrix5"></span><br>
+              <hr>
+            </td>
+          </tr>
+          <tr>
+            <td>Encrypted Text</td>
+            <td><div id="playfair-output" class="form-control"></div></td>
+            <td><button onclick="myFunction('playfair-output')" class="btn btn-secondary display-hidden">Copy to Clipboard</button></td>
+          </tr>
+        </table>
       </div>
+
+
     <!-- Vigenere Cipher Form starts here -->
-    <div class="tab-pane fade" id="vigenere" role="tabpanel" aria-labelledby="affine-tab">
-      <form action="/test/" class="col-8 mx-auto">
+    <div class="tab-pane fade" id="vigenere" role="tabpanel" aria-labelledby="vigenere-tab">
+      <form class="col-8 mx-auto" id="vigenere-form">
         {{ csrf_token }}
         <h2>Vigenere Cipher</h2>
-          <input type="text" class="form-control m-3" aria-label="With textarea" placeholder="Enter Plain Text" name="plainText" pattern="[a-z A-Z]+" required>
-        <div class="input-group m-3">
-          <input type="text" class="form-control" placeholder="Enter Keyword" aria-label="Plain Text" aria-describedby="encrypt" name="key"  pattern="[a-zA-Z]" required>
-          <button class="btn btn-outline-primary" type="submit" id="encrypt">Encrypt</button>
-        </div>
-      </form>
-    </div>
+          <input type="text" class="form-control m-3" aria-label="With textarea" placeholder="Enter Plain Text" id = "vigenere_plaintext" pattern="[a-z A-Z]+" required>
+          <div class="input-group m-3">
+            <input type="text" class="form-control" placeholder="Enter Keyword" aria-label="Plain Text" aria-describedby="encrypt" id = "vigenere_keyword" pattern="[a-z A-Z]+" required>
+            <button class="btn btn-outline-primary" type="submit" id="encrypt">Encrypt</button>
+          </div>
+        </form>
+        <table class="col-8 m-3 mx-auto text-center" style="display:none" id="vigenere-table">
+          <tr>
+            <td>Encrypted Text</td>
+            <td><div id="vigenere-output" class="form-control"></div></td>
+            <td><button onclick="myFunction('vigenere-output')" class="btn btn-secondary display-hidden">Copy to Clipboard</button></td>
+          </tr>
+        </table>
+      </div>
+
+
     <!-- Keyless Transposition Cipher Form starts here -->
     <div class="tab-pane fade" id="keylesstrans" role="tabpanel" aria-labelledby="keylesstrans-tab">
-      <form action="/test/" class="col-8 mx-auto">
+      <form class="col-8 mx-auto" id="keylesstrans-form">
         {{ csrf_token }}
         <h2>Keyless Transposition Cipher</h2>
-          <!-- -->
-          <input type="text" class="form-control m-3"  placeholder="Enter Plain Text" aria-label="Plain Text" name="plainText" pattern="[a-z A-Z]+" required>
-        <div class="input-group m-3">
-          <input type="number" class="form-control" placeholder="Enter block size" name="key" max="10" min="0" required>
-          <button class="btn btn-outline-primary" type="submit" id="encrypt">Encrypt</button>
-        </div>
-      </form>
-    </div>
+          <input type="text" class="form-control m-3" aria-label="With textarea" placeholder="Enter Plain Text" id = "keylesstrans_plaintext" pattern="[a-z A-Z]+" required>
+          <div class="input-group m-3">
+            <input type="number" class="form-control" placeholder="Enter Block Size" aria-describedby="encrypt" id = "keylesstrans_block" max="99" min="2" required>
+            <button class="btn btn-outline-primary" type="submit" id="encrypt">Encrypt</button>
+          </div>
+        </form>
+        <table class="col-8 m-3 mx-auto text-center" style="display:none" id="keylesstrans-table">
+          <tr>
+            <td>Message</td>
+            <td colspan='2'><span id="keylesstrans-message">test<br>test</span><hr></td>
+          </tr>
+          
+          <tr>
+            <td>Encrypted Text</td>
+            <td><div id="keylesstrans-output" class="form-control"></div></td>
+            <td><button onclick="myFunction('keylesstrans-output')" class="btn btn-secondary display-hidden">Copy to Clipboard</button></td>
+          </tr>
+        </table>
+      </div>
+
     <!-- Columnar Transposition Cipher Form starts here -->
     <div class="tab-pane fade" id="coltrans" role="tabpanel" aria-labelledby="coltrans-tab">
-      <form action="/test/" class="col-8 mx-auto">
+      <form class="col-8 mx-auto" id="coltrans-form">
         {{ csrf_token }}
-        <h2>Columnar Transposition Cipher</h2>
-          <input type="text" class="form-control m-3" aria-label="With textarea" placeholder="Enter Plain Text" name="plainText" pattern="[a-z A-Z]+" required>
-        <div class="input-group m-3">
-          <input type="text" class="form-control" placeholder="Enter Columnar Key (Example : 54321)" aria-label="Plain Text" aria-describedby="encrypt" name="key" required>
-          <button class="btn btn-outline-primary" type="submit" id="encrypt">Encrypt</button>
-        </div>
-      </form>
-    </div>
+        <h2>Keyless Transposition Cipher</h2>
+          <input type="text" class="form-control m-3" aria-label="With textarea" placeholder="Enter Plain Text" id = "coltrans_plaintext" pattern="[a-z A-Z]+" required>
+          <div class="input-group m-3">
+            <input type="number" class="form-control" placeholder="Enter Columnar key (Example : 54321)" aria-describedby="encrypt" id = "coltrans_key" max="999999999" min="22" required>
+            <button class="btn btn-outline-primary" type="submit" id="encrypt">Encrypt</button>
+          </div>
+        </form>
+        <h6 class="text-danger" id='coltrans-error'></h6>
+        <table class="col-8 m-3 mx-auto text-center" style="display:none" id="coltrans-table">
+          <tr>
+            <td>Message</td>
+            <td colspan='2'><span id="coltrans-message">test<br>test</span><hr></td>
+          </tr>
+          
+          <tr>
+            <td>Encrypted Text</td>
+            <td><div id="coltrans-output" class="form-control"></div></td>
+            <td><button onclick="myFunction('coltrans-output')" class="btn btn-secondary display-hidden">Copy to Clipboard</button></td>
+          </tr>
+        </table>
+      </div>
   </div>
 </div>
 <div class="card-footer text-center">
@@ -169,5 +229,5 @@
 {%endblock content%}
 
 {% block scripts %}
-<script type="text/javascript" src="{{ url_for('static', filename='js/home.js') }}"></script>
+<script type="text/javascript" src="{{ url_for('static', filename='js/encryption.js') }}"></script>
 {% endblock scripts %}

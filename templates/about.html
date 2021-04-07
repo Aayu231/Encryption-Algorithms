@@ -1,14 +1,13 @@
 {% extends 'base.html'%}{% block content%}
-
+<div class="about-back"></div>
 <div>
-    <div class="container py-5">
-      <div class="row h-100 align-items-center py-5">
+    <div class="container">
+      <div class="row h-75 align-items-center">
         <div class="col-lg-6">
-          <h1 class="display-5 text-success"><b>What is Secrepy?</b></h1>
+          <h1 class="display-5 text-primary"><b>What is Secrepy?</b></h1>
           <br/>
 
-          <h5 class="font-weight-light text-light"><b>Secrepy is a Simple Application that provides you Encryption of Words using Multiple Cipher techniques.<br/>
-         The Techniques depicted here are used generally for cryptography and making the system more secure.</b></h4>
+          <h5 class="font-weight-light text-dark text-center"><b>Secrepy is a Simple Application that provides you Encryption of Words using Multiple Cipher techniques.The Techniques depicted here are used generally for cryptography and making the system more secure.</b></h4>
 
           </p>
         </div>
@@ -25,14 +24,14 @@
           <h5 class="font-weight-light">Let's Take a look at the List of Different Cipher techniques that we are using here...</h5><br/>
           <h5 class="font-weight-light">
               <ul>
-              <li style="color:black"><a href="https://en.wikipedia.org/wiki/Caesar_cipher"> Caesar Cipher</a> </li>
-              <li> <a href="https://www.tutorialspoint.com/cryptography_with_python/cryptography_with_python_multiplicative_cipher.htm">  Multiplicative Cipher </a></li>
-              <li>  <a href="https://en.wikipedia.org/wiki/Affine_cipher#:~:text=The%20affine%20cipher%20is%20a,converted%20back%20to%20a%20letter."> Affine Cipher</a> </li>
-              <li>  <a href="https://en.wikipedia.org/wiki/Autokey_cipher"> Autokey Cipher </a></li>
-              <li>  <a href="https://en.wikipedia.org/wiki/Playfair_cipher">Playfair Cipher </a> </li>
-              <li> <a href="https://en.wikipedia.org/wiki/Vigen%C3%A8re_cipher">  Vigenere Cipher</a> </li>
-              <li>  <a href="https://www.ques10.com/p/3454/what-is-keyless-transposition-cipher-give-an-exa-1/#:~:text=Keyless%20Transportation%20cipher%20is%20simple,then%20transmitted%20column%20by%20column.ssss"> Keyless Transposition Cipher</a> </li>
-              <li>  <a href="https://www.geeksforgeeks.org/columnar-transposition-cipher/"> Keyed Transposition Cipher</a> </li>
+              <li> <a target="_blank" class="nav-link" href="https://en.wikipedia.org/wiki/Caesar_cipher"> Caesar Cipher</a> </li>
+              <li> <a target="_blank" class="nav-link" href="https://www.tutorialspoint.com/cryptography_with_python/cryptography_with_python_multiplicative_cipher.htm">  Multiplicative Cipher </a></li>
+              <li>  <a target="_blank" class="nav-link" href="https://en.wikipedia.org/wiki/Affine_cipher#:~:text=The%20affine%20cipher%20is%20a,converted%20back%20to%20a%20letter."> Affine Cipher</a> </li>
+              <li>  <a target="_blank" class="nav-link" href="https://en.wikipedia.org/wiki/Autokey_cipher"> Autokey Cipher </a></li>
+              <li>  <a target="_blank" class="nav-link" href="https://en.wikipedia.org/wiki/Playfair_cipher">Playfair Cipher </a> </li>
+              <li> <a target="_blank" class="nav-link" href="https://en.wikipedia.org/wiki/Vigen%C3%A8re_cipher">  Vigenere Cipher</a> </li>
+              <li>  <a target="_blank" class="nav-link" href="https://www.ques10.com/p/3454/what-is-keyless-transposition-cipher-give-an-exa-1/#:~:text=Keyless%20Transportation%20cipher%20is%20simple,then%20transmitted%20column%20by%20column.ssss"> Keyless Transposition Cipher</a> </li>
+              <li>  <a target="_blank" class="nav-link" href="https://www.geeksforgeeks.org/columnar-transposition-cipher/"> Keyed Transposition Cipher</a> </li>
              </ul>
             </h2>
         </div>
@@ -60,33 +59,33 @@
         </div>
       </div>
   
-      <div class="row text-center">
-        <div class="col-xl-2 col-sm-4 mb-5" ></div>
-        <!-- Team item-->
-        <div class="col-xl-3 col-sm-7 mb-5" >
-          <div class="bg-primary rounded shadow-sm py-5 px-4"><img src="{{url_for('static', filename='/images/anurag.jpeg')}}" alt="" width="100" class="img-fluid rounded-circle mb-3 img-thumbnail shadow-sm">
-            <h5 class="mb-0 text-light">Anurag Singh </h5><span class="small text-uppercase text-light">TE COMP B 30</span>
-          </div>
+      <div class="row text-center justify-content-center w-100">
+
+      <!-- Team item-->
+      <div class="col-xl-3 col-sm-7 mb-5">
+        <div class="bg-primary rounded shadow-sm py-5"><img src="{{url_for('static', filename='/images/harsh.jpg')}}" alt="" width="250" class="img-fluid rounded-circle mb-3 img-thumbnail shadow-sm">
+          <h5 class="mb-0 text-light">Harsh Singh</h5><span class="small text-uppercase text-light">TE COMP B 31</span>
         </div>
-        <!-- End-->
-  
-        <!-- Team item-->
-        <div class="col-xl-3 col-sm-7 mb-5">
-          <div class="bg-primary rounded shadow-sm py-5 px-4"><img src="{{url_for('static', filename='/images/aayushi.jpg')}}" alt="" width="100" class="img-fluid rounded-circle mb-3 img-thumbnail shadow-sm">
-            <h5 class="mb-0 text-light">Aayushi Sarda </h5><span class="small text-uppercase text-light">TE COMP B 15</span>
-           
-          </div>
+      </div>
+      <!-- End--> 
+      <!-- Team item-->
+      <div class="col-xl-3 col-sm-7 mb-5" >
+        <div class="bg-primary rounded shadow-sm py-5"><img src="{{url_for('static', filename='/images/anurag.jpeg')}}" alt="" width="250" class="img-fluid rounded-circle mb-3 img-thumbnail shadow-sm">
+          <h5 class="mb-0 text-light">Anurag Singh </h5><span class="small text-uppercase text-light">TE COMP B 30</span>
         </div>
-        <!-- End-->
-  
-        <!-- Team item-->
-        <div class="col-xl-3 col-sm-7 mb-5">
-          <div class="bg-primary rounded shadow-sm py-5 px-4"><img src="{{url_for('static', filename='/images/harsh.jpg')}}" alt="" width="100" class="img-fluid rounded-circle mb-3 img-thumbnail shadow-sm">
-            <h5 class="mb-0 text-light">Harsh Singh</h5><span class="small text-uppercase text-light">TE COMP B 31</span>
-          </div>
-        </div>
-        <!-- End-->
-        <div class="col-xl-2 col-sm-4 mb-5" ></div>
+      </div>
+      <!-- End-->
+      <!-- Team item-->
+      <div class="col-xl-3 col-sm-7 mb-5">
+      <div class="bg-primary rounded shadow-sm py-5"><img src="{{url_for('static', filename='/images/aayushi.jpg')}}" alt="" width="250" class="img-fluid rounded-circle mb-3 img-thumbnail shadow-sm">
+        <h5 class="mb-0 text-light">Aayushi Sarda </h5><span class="small text-uppercase text-light">TE COMP B 15</span>
+        
+      </div>
+    </div>
+    <!-- End-->
+       
+      
+       
   
       </div>
     </div>
