@@ -26,20 +26,20 @@ def multiplicative():
         return jsonify({'cipher': ct})
     return jsonify({'error' : 'Something went wrong'})
 
-@app.route('/encrypt/affine/',methods= ['POST'])
+@app.route('/encrypt/affine/', methods= ['POST'])
 def affine():
     pt = request.form["plaintext"]
-    multkey = request.form["multkey"]
-    addkey = request.form["addkey"]
-    ct = cipher.affine(pt,multkey,addkey)
+    multkey = request.form["affine_key1"]
+    addkey = request.form["affine_key2"]
+    ct = cipher.affine(pt,int(multkey),int(addkey))
     if ct:
         return jsonify({'cipher': ct})
     return jsonify({'error' : 'Something went wrong'})
 
 @app.route('/encrypt/vigenere/',methods= ['POST'])
 def vigenere():
-    pt = request.POST["plaintext"]
-    keyword = request.POST["keyword"]
+    pt = request.form["plaintext"]
+    keyword = request.form["keyword"]
     ct = cipher.vigenere_encrypt(pt,keyword)
     if ct:
         return jsonify({'cipher': ct})
@@ -47,9 +47,9 @@ def vigenere():
 
 @app.route('/encrypt/autokey/',methods=['POST'])
 def autokey():
-    pt = request.POST['plaintext']
-    key = request.POST['key']
-    ct = cipher.autokey_encrypt(pt,key)
+    pt = request.form['plaintext']
+    key = request.form['key']
+    ct = cipher.autokey_encrypt(pt, int(key))
     if ct:
         return jsonify({'cipher': ct})
     return jsonify({'error':'Something went wrong'})

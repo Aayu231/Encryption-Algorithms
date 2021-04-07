@@ -34,6 +34,45 @@ $(document).ready(function() {
    });
    event.preventDefault();
    });
+
+   $('#affine-form').on('submit', function(event) {
+    $('#affine-output').text("Encrypting your message...").show();
+    $.ajax({
+       data : {
+          plaintext : $('#affine-plaintext').val(),
+          affine_key1: $('#affine_key1').val(),
+          affine_key2: $('#affine_key2').val(),
+              },
+          type : 'POST',
+          url : '/encrypt/affine/'
+         })
+     .done(function(data) {
+       console.log(data.cipher);
+      $('#affine-table').show();
+       $('#affine-output').text(data.cipher).show();
+   });
+   event.preventDefault();
+   });
+
+   $('#autokey-form').on('submit', function(event) {
+    $('#autokey-output').text("Encrypting your message...").show();
+    $.ajax({
+       data : {
+          plaintext : $('#autokey-plaintext').val(),
+          key: $('#autokey-key').val(),
+              },
+          type : 'POST',
+          url : '/encrypt/autokey/'
+         })
+     .done(function(data) {
+       console.log(data.cipher);
+      $('#autokey-table').show();
+       $('#autokey-output').text(data.cipher).show();
+   });
+   event.preventDefault();
+   });
+
+   
 });
 
 
